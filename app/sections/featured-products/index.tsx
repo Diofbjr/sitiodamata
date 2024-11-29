@@ -8,30 +8,16 @@ import type { SectionProps } from "~/components/section";
 import { Section, layoutInputs } from "~/components/section";
 import { PRODUCT_CARD_FRAGMENT } from "~/data/fragments";
 
-// biome-ignore lint/suspicious/noEmptyInterface: <explanation>
+// Interface para dados de produtos destacados
 interface FeaturedProductsData {}
 
 interface FeaturedProductsProps
   extends SectionProps<FeaturedProductsLoaderData>,
     FeaturedProductsData {}
 
-let FeaturedProducts = forwardRef<HTMLElement, FeaturedProductsProps>(
-  (props, ref) => {
-    let { loaderData, children, ...rest } = props;
-    return (
-      <Section ref={ref} {...rest}>
-        {children}
-      </Section>
-    );
-  }
-);
-
-export default FeaturedProducts;
-
-// TODO: allowing pick products or select a collection
+// Query GraphQL renomeada para evitar conflito
 let FEATURED_PRODUCTS_QUERY = `#graphql
-  query featuredProducts($country: CountryCode, $language: LanguageCode)
-  @inContext(country: $country, language: $language) {
+  query featuredProductsList($country: CountryCode, $language: LanguageCode) {
     products(first: 16) {
       nodes {
         ...ProductCard
@@ -56,6 +42,17 @@ export let loader = async ({ weaverse }: ComponentLoaderArgs) => {
   );
 };
 
+let FeaturedProducts = forwardRef<HTMLElement, FeaturedProductsProps>(
+  (props, ref) => {
+    let { loaderData, children, ...rest } = props;
+    return (
+      <Section ref={ref} {...rest}>
+        {children}
+      </Section>
+    );
+  }
+);
+
 export let schema: HydrogenComponentSchema = {
   type: "featured-products",
   title: "Featured products",
@@ -74,3 +71,5 @@ export let schema: HydrogenComponentSchema = {
     ],
   },
 };
+
+export default FeaturedProducts;

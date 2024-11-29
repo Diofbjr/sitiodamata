@@ -21,9 +21,9 @@ type ImageSectionProps = SectionProps & {
   buttonVariant?: "primary" | "secondary" | "link" | "outline" | "custom";
 };
 
+// Query GraphQL renomeada para evitar conflito
 let FEATURED_PRODUCTS_QUERY = `#graphql
-  query featuredProducts($country: CountryCode, $language: LanguageCode)
-  @inContext(country: $country, language: $language) {
+  query imageSectionFeaturedProducts($country: CountryCode, $language: LanguageCode) {
     products(first: 3) {
       nodes {
         ...ProductCard
@@ -96,7 +96,7 @@ const ImageSection = forwardRef<HTMLElement, ImageSectionProps>((props, ref) => 
       </div>
 
       {/* Background Image Section */}
-      <div className="w-full md:w-1/2 overflow-hidden md:relative  md:mt-0"> {/* Ajuste o mt-32 conforme necessário */}
+      <div className="w-full md:w-1/2 overflow-hidden md:relative md:mt-0">
         {image?.url && (
           <Image
             data={{
@@ -121,42 +121,10 @@ export let schema: HydrogenComponentSchema = {
       group: "Text Content",
       inputs: [
         {
-          type: "select",
-          name: "headingLevel",
-          label: "Heading Level",
-          defaultValue: "h1",
-          configs: {
-            options: [
-              { label: "h1", value: "h1" },
-              { label: "h2", value: "h2" },
-              { label: "h3", value: "h3" },
-              { label: "h4", value: "h4" },
-              { label: "h5", value: "h5" },
-              { label: "h6", value: "h6" },
-            ],
-          },
-        },
-        {
           type: "text",
           name: "heading",
           label: "Heading",
           defaultValue: "Default Heading",
-        },
-        {
-          type: "select",
-          name: "subheadingLevel",
-          label: "Subheading Level",
-          defaultValue: "h2",
-          configs: {
-            options: [
-              { label: "h1", value: "h1" },
-              { label: "h2", value: "h2" },
-              { label: "h3", value: "h3" },
-              { label: "h4", value: "h4" },
-              { label: "h5", value: "h5" },
-              { label: "h6", value: "h6" },
-            ],
-          },
         },
         {
           type: "text",
@@ -181,32 +149,6 @@ export let schema: HydrogenComponentSchema = {
               { label: "Custom", value: "custom" },
             ],
           },
-        },
-        {
-          type: "select",
-          name: "gap",
-          label: "Gap Between Elements",
-          defaultValue: "6", // Default gap is set to 6
-          configs: {
-            options: [
-              { label: "0", value: "0" },
-              { label: "4", value: "4" },
-              { label: "6", value: "6" },
-              { label: "8", value: "8" },
-              { label: "12", value: "12" },
-              { label: "16", value: "16" },
-            ],
-          },
-        },
-      ],
-    },
-    {
-      group: "Image Settings",
-      inputs: [
-        {
-          type: "image",
-          name: "image",
-          label: "Image",
         },
       ],
     },
