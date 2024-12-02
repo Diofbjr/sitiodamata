@@ -56,7 +56,7 @@ import * as JudgemeReview from "~/sections/judgeme-reviews";
 import * as ReviewIndex from "~/sections/judgeme-reviews/review-index";
 import * as ImageSection from "~/sections/image-with-text-variant";
 import * as RecentBlogPosts from "~/sections/blog-posts";
-
+import * as ImageSectionFeaturedProducts from "~/sections/image-with-text-variant"; // Novo componente
 
 export let components: HydrogenComponent[] = [
   SubHeading,
@@ -118,5 +118,6 @@ export let components: HydrogenComponent[] = [
   ProductList,
   Spacer,
   ImageSection,
-  RecentBlogPosts
+  RecentBlogPosts,
+  ImageSectionFeaturedProducts, // Adicionado à lista
 ];

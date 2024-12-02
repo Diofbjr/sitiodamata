@@ -139,13 +139,15 @@ export function QuickViewTrigger({ productHandle }: { productHandle: string }) {
   return (
     <Modal open={open} onOpenChange={setOpen}>
       <ModalTrigger>
-        <Button
-          variant="secondary"
-          loading={state === "loading"}
-          className="absolute inset-x-4 bottom-4 hidden lg:group-hover:block"
-        >
-          Quick shop
-        </Button>
+      <Button
+        variant="secondary"
+        loading={state === "loading"}
+        className="w-[6.5rem] px-4 py-2 bg-[#9CCC65] text-black rounded-3xl mt-2 hover:bg-[#9CCC65] hover:text-black focus:outline-none"
+      >
+        Comprar
+      </Button>
+
+
       </ModalTrigger>
       <ModalContent className="min-h-[700px]">
         {state === "loading" ? (

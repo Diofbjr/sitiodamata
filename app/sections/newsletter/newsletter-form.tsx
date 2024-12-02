@@ -33,7 +33,7 @@ let NewsLetterForm = forwardRef<HTMLDivElement, NewsLetterInputProps>(
           action="/api/customer"
           className="flex items-center w-full"
         >
-          <div className="flex items-center border-r-0 border-y border-l grow">
+          <div className="flex items-center border-r-0 border-y border-l grow bg-[#FAFAFA]">
             <IconEnvelopeSimple className="w-5 h-5 text-body/80 ml-3 mr-1.5 shrink-0" />
             <input
               name="email"
@@ -110,8 +110,8 @@ export let schema: HydrogenComponentSchema = {
           type: "text",
           name: "successText",
           label: "Success message",
-          placeholder: "🎉 Thank you for subscribing!",
-          defaultValue: "🎉 Thank you for subscribing!",
+          placeholder: "🎉 Obrigado por se inscrever!",
+          defaultValue: "🎉 Obrigado por se inscrever!",
         },
         {
           type: "text",
