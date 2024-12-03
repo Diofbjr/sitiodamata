@@ -2,14 +2,14 @@
     "builds": [
       {
         "src": "package.json",
-        "use": "@vercel/node"
+        "use": "@vercel/remix"
       }
     ],
-    "outputDirectory": "dist/server",
+    "outputDirectory": "dist",
     "routes": [
       {
         "src": "/(.*)",
-        "dest": "dist/server/index.js"
+        "dest": "dist/server.js"
       }
     ]
   }
