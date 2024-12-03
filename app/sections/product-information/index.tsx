@@ -144,7 +144,7 @@ let ProductInformation = forwardRef<HTMLDivElement, ProductInformationProps>(
                     )}
                     {isNew && (
                       <span className="py-1.5 px-2 text-background bg-[var(--color-new-tag)] rounded">
-                        NEW ARRIVAL
+                        Novo
                       </span>
                     )}
                   </div>

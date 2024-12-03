@@ -19,8 +19,7 @@
     "biome:fix": "biome check --write --diagnostic-level=error",
     "format": "biome format --write",
     "format:check": "biome format",
-    "postbuild": "mv dist/server build",
-    "start": "remix-serve build"
+    "postbuild": "mv dist/server build"
   },
   "dependencies": {
     "@babel/plugin-transform-class-properties": "^7.25.9",

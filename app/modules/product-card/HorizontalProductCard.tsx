@@ -28,7 +28,7 @@ export function HorizontalProductCard({
   if (isDiscounted(price as MoneyV2, compareAtPrice as MoneyV2)) {
     cardLabel = "Sale";
   } else if (isNewArrival(product.publishedAt)) {
-    cardLabel = "New arrival";
+    cardLabel = "Novo";
   }
 
   return (
